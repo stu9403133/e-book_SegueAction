@@ -7,17 +7,19 @@
 
 import UIKit
 
+
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailPic1: UIImageView!
     @IBOutlet weak var detailText: UITextView!
     @IBOutlet weak var detailPic2: UIImageView!
+    
     var detailLoad:PeopleName!
-    var detail:Detail!
+    var detail = Detail()
     let peopleName = PeopleName.allCases
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         switch detailLoad {
         case .itadori:
@@ -46,25 +48,8 @@ class DetailViewController: UIViewController {
         detailPic2.image = UIImage(named: "\(PeopleName.rawValue)" + "1")
         var index = peopleName.index(of: PeopleName)
         let detailArray = detail.detailArray
-        switch detailLoad {
-        case .itadori:
-            detailText.text = "\(detailArray[index!])"
-        case .fushiguro:
-            detailText.text = "\(detail.detailArray[index!])"
-        case .kugisaki:
-            detailText.text = "\(detail.detailArray[index!])"
-        case .gojo:
-            detailText.text = "\(detail.detailArray[index!])"
-        case .toge:
-            detailText.text = "\(detail.detailArray[index!])"
-        case .sukuna:
-            detailText.text = "\(detail.detailArray[index!])"
-        case .jogo:
-            detailText.text = "\(detail.detailArray[index!])"
-        default:
-            detailText.text = "查無此人"
-        }
         
+        detailText.text = "\(detailArray[index!])"
     }
 
     /*
